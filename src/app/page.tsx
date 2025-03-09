@@ -9,25 +9,49 @@ export default function Page() {
     const router = useRouter();
     
     useEffect(() => {
-        
         router.prefetch("/pt");
+        router.prefetch("/en");
         
-        const timer = setTimeout(() => {
-            router.push("/pt");
-        }, 3000);
+        const detectLocationAndRedirect = async () => {
+            try {
+                
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                
+                
+                const redirectTime = 3000; 
+                
+                
+                if (data.country === 'BR') {
+                    setTimeout(() => {
+                        router.push("/pt");
+                    }, redirectTime);
+                } else {
+                    setTimeout(() => {
+                        router.push("/en");
+                    }, redirectTime);
+                }
+            } catch (error) {
+                console.error("Erro ao detectar localização:", error);
+                setTimeout(() => {
+                    router.push("/pt");
+                }, 3000);
+            }
+        };
         
-        return () => clearTimeout(timer);
+        detectLocationAndRedirect();
+        
     }, [router]);
     
     return (
         <div className="min-h-screen bg-red-500 flex flex-col justify-center items-center">
             <div className="relative">
                 <Image 
-                    src="/avião.png" 
-                    alt="Avião" 
+                    src="/avião.png"
+                    alt="Avião"
                     width={200}
                     height={150}
-                    priority 
+                    priority
                     className="animate-pulse"
                     style={{
                         animation: "pulse 1.5s infinite ease-in-out, float 3s infinite ease-in-out"
