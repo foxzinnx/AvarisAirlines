@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Main = () => {
     return(
-        <div className="flex mt-20 w-full justify-center items-center px-4" data-aos="zoom-in">
+        <div className="flex mt-20 w-full justify-center items-center px-4">
             <div className="flex max-w-[1300px] w-full justify-center flex-col items-center">
                 <Image 
                     src="/hero.png"
