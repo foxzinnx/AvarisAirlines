@@ -3,22 +3,13 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import "./loading.css"
 
 export default function Page() {
     const router = useRouter();
     
     useEffect(() => {
-        
-        AOS.init({
-            duration: 800, 
-            easing: 'ease-in-out',
-            once: true, 
-            disable: 'mobile' 
-        });
-        
+                
         
         router.prefetch("/pt");
         
