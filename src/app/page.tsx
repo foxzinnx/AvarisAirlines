@@ -9,13 +9,12 @@ export default function Page() {
     const router = useRouter();
     
     useEffect(() => {
-                
         
         router.prefetch("/pt");
         
         const timer = setTimeout(() => {
             router.push("/pt");
-        }, 4000);
+        }, 3000);
         
         return () => clearTimeout(timer);
     }, [router]);
