@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./loading.css"
@@ -10,14 +11,20 @@ export default function Page() {
     const router = useRouter();
     
     useEffect(() => {
+        
         AOS.init({
-            duration: 1000,
+            duration: 800, 
             easing: 'ease-in-out',
+            once: true, 
+            disable: 'mobile' 
         });
+        
+        
+        router.prefetch("/pt");
         
         const timer = setTimeout(() => {
             router.push("/pt");
-        }, 3000);
+        }, 4000);
         
         return () => clearTimeout(timer);
     }, [router]);
@@ -25,10 +32,12 @@ export default function Page() {
     return (
         <div className="min-h-screen bg-red-500 flex flex-col justify-center items-center">
             <div className="relative">
-                <img 
+                <Image 
                     src="/avião.png" 
                     alt="Avião" 
                     width={200}
+                    height={150}
+                    priority 
                     className="animate-pulse"
                     style={{
                         animation: "pulse 1.5s infinite ease-in-out, float 3s infinite ease-in-out"
