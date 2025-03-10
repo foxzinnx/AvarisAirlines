@@ -1,7 +1,31 @@
+"use client"
+
 import { faLock, faMoneyCheckDollar, faPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 
 export const About = () => {
+    // Se você estiver usando "use client" no topo deste arquivo, adicione esta lógica
+    // para detectar o tamanho da tela
+    const [isMobile, setIsMobile] = useState(true);
+    
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        checkIfMobile();
+        window.addEventListener('resize', checkIfMobile);
+        
+        return () => {
+            window.removeEventListener('resize', checkIfMobile);
+        };
+    }, []);
+    
+    // Defina o tamanho do ícone com base no dispositivo
+    const iconSize = isMobile ? { width: '34px', height: '34px', minWidth: '34px' } 
+                              : { width: '48px', height: '48px', minWidth: '48px' };
+    
     return (
         <div className="flex px-4 py-10 mt-20 md:mt-24 lg:mt-28 w-full justify-center items-center">
             <div className="max-w-[1300px] w-full flex flex-col justify-center items-center">
@@ -14,7 +38,11 @@ export const About = () => {
                     <div className="flex gap-4 flex-col items-center max-w-full sm:max-w-md mx-auto">
                         <div className="p-4 md:p-5 rounded-full bg-red-500">
                             <div className="p-2 md:p-3 rounded-full bg-red-500">
-                                <FontAwesomeIcon icon={faMoneyCheckDollar} className="size-8 md:size-12 text-white" />
+                                <FontAwesomeIcon 
+                                    icon={faMoneyCheckDollar} 
+                                    className="size-8 md:size-12 text-white" 
+                                    style={iconSize}
+                                />
                             </div>
                         </div>
                         <div className="flex flex-col items-center py-2">
@@ -22,11 +50,15 @@ export const About = () => {
                             <p className="pt-1 text-center text-sm md:text-[15px]">Combinamos qualidade e acessibilidade para que você possa viajar mais, pagando menos.</p>
                         </div>
                     </div>
-
+                    
                     <div className="flex gap-4 flex-col items-center max-w-full sm:max-w-md mx-auto">
                         <div className="p-4 md:p-5 rounded-full bg-red-500">
                             <div className="p-2 md:p-3 rounded-full bg-red-500">
-                                <FontAwesomeIcon icon={faLock} className="size-8 md:size-12 text-white" />
+                                <FontAwesomeIcon 
+                                    icon={faLock} 
+                                    className="size-8 md:size-12 text-white" 
+                                    style={iconSize}
+                                />
                             </div>
                         </div>
                         <div className="flex flex-col items-center py-2">
@@ -34,11 +66,15 @@ export const About = () => {
                             <p className="text-center text-sm md:text-[15px] pt-1">Nossa frota moderna e equipe altamente treinada garantem que você chegue ao seu destino com total tranquilidade.</p>
                         </div>
                     </div>
-
+                    
                     <div className="flex gap-4 flex-col items-center max-w-full sm:max-w-md mx-auto md:col-span-2 lg:col-span-1">
                         <div className="p-4 md:p-5 rounded-full bg-red-500">
                             <div className="p-2 md:p-3 rounded-full bg-red-500">
-                                <FontAwesomeIcon icon={faPlane} className="size-8 md:size-12 text-white" />
+                                <FontAwesomeIcon 
+                                    icon={faPlane} 
+                                    className="size-8 md:size-12 text-white" 
+                                    style={iconSize}
+                                />
                             </div>
                         </div>
                         <div className="flex flex-col items-center py-2">

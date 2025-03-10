@@ -1,8 +1,7 @@
-import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
-import { faBars, faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
+;import Image from "next/image";
 import "../../../app/li.css";
+import { UserMenu } from "./usermenu";
+import LanguageSelector from "./language";
 
 export const Header = () => {
 
@@ -28,14 +27,8 @@ export const Header = () => {
                     </ul>
                 </div>
                 <div className="flex items-center gap-3">
-                    <div className="flex gap-1 cursor-pointer hover:bg-neutral-100 transition-colors duration-300 rounded-full lg:rounded-3xl md:rounded-3xl border border-neutral-400 p-2 md:px-3 lg:px-3 items-center">
-                        <FontAwesomeIcon icon={faGlobe} className="size-[17px] lg:size-[15px] text-[#0f0f0f]" />
-                        <p className="text-[14px] font-medium hidden md:hidden lg:flex">English</p>
-                    </div>
-                    <div className="flex cursor-pointer items-center gap-3 bg-red-500 p-2 px-3 rounded-3xl">
-                        <FontAwesomeIcon icon={faCircleUser} className="size-6 text-white" />
-                        <FontAwesomeIcon icon={faBars} className="size-[18px] text-white" />
-                    </div>
+                    <LanguageSelector />
+                    <UserMenu />
                 </div>
             </div>
         </header>

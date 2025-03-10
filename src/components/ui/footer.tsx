@@ -16,9 +16,9 @@ export const Footer = () => {
                     <div className="flex flex-col justify-center items-center gap-2">
                         <h1 className="font-medium">Segue-nos!</h1>
                         <div className="flex items-center pt-2 lg:pt-0 gap-2">
-                            <img src="/insta.png" alt="" width={34}/>
-                            <img src="/tiktok.png" alt="" width={26}/>
-                            <img src="/linkedin.png" alt="" width={30}/>
+                            <a href="https://instagram.com/bryannfxz" target="_blank"><img src="/insta.png" alt="" width={34} /></a>
+                            <a href="https://tiktok.com/@bryannfx18" target="_blank"><img src="/tiktok.png" alt="" width={26}/></a>
+                            <a href="https://www.linkedin.com/in/bryangomes/" target="_blank"><img src="/linkedin.png" alt="" width={30}/></a>
                             <img src="/face.png" alt="" width={30}/>
                         </div>
                     </div>

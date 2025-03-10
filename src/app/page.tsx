@@ -19,7 +19,7 @@ export default function Page() {
                 const data = await response.json();
                 
                 
-                const redirectTime = 3000; 
+                const redirectTime = 1000; 
                 
                 
                 if (data.country === 'BR') {
@@ -35,7 +35,7 @@ export default function Page() {
                 console.error("Erro ao detectar localização:", error);
                 setTimeout(() => {
                     router.push("/pt");
-                }, 3000);
+                }, 1000);
             }
         };
         

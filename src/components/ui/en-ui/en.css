@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'google';
+    src: url(../../fonts/Product\ Sans\ Regular.ttf);
+}
+
+/* 
+#or::before,
+#or::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 33%;
+    background-color: #c0c0c0;
+    top: 78.1%;
+}
+
+#or::before{
+    left: 2.9rem;
+}
+
+#or::after{
+    right: 2.9rem;
+} */
+
+#google{
+    font-family: 'google';
+    font-weight: 700;
+    color: #414141;
+    font-size: 15px;
+}
+
+#enter{
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+#enter::before{
+    content: '';
+    position: absolute;
+    bottom: 2.7rem;
+    left: 17.3rem;
+    width: 0%;
+    height: 2px;
+    background-color: red;
+    transition: .4s ease;
+}
+
+#enter:hover::before{
+    width: 9.6%;
+}
+
+#cadastro{
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+#cadastro::before{
+    content: '';
+    position: absolute;
+    bottom: 2.65rem;
+    left: 16.5rem;
+    width: 0%;
+    height: 2px;
+    background-color: red;
+    transition: .4s ease;
+}
+
+#cadastro:hover::before{
+    width: 12.5%;
+}
