@@ -8,16 +8,17 @@ import Link from "next/link";
 
 export const UserMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const menuRef = useRef(null);
-  const buttonRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         showMenu && 
         menuRef.current && 
-        !menuRef.current.contains(event.target) &&
-        !buttonRef.current.contains(event.target)
+        buttonRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        !buttonRef.current.contains(event.target as Node)
       ) {
         setShowMenu(false);
       }
